@@ -1,39 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sobre mim</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Olá,eu sou Matheus Freire!</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="about.html">sobre</a></li>
-                <li><a href="projects.html">projetos</a></li>
-                <li><button id="theme-toggle">escuro</button></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-    <section>
-        <h2>Sobre mim:</h2></2>
-        <p>Prazer, eu me chamo Matheus Freire Pimenta Cavalcanti ,eu sou natural de Recife Pernambuco e tenho 18 anos. Atualmente eu estudo na Cesar School no curso de graduação em  ciências da computação onde me encontro no primeiro período. Um dia espero me tornar um desenvolvedor de Back-and e abrir minha própria empresa.Atualmente as linguagens de computação que eu conheço são o básico de python, Arduino IDE, javascrypt, CSS e Html.Além disso, me interesso também no desenvolvimento de jogos digitais e na parte de robótica e desenvolvimento de IAs.</p>
-    </section>
-    <section>
-        <h3>Minhas habilitades:</h3>
-        <ul>
-            <li>O básico de HTML5</li>
-            <li>o básico de javascrypt</li>
-            <li>css</li>
-            <li>Python</li>
-            <li>Arduino IDE</li>
-        </ul>
-    </section>
-    </main>
-    <script> src="script.js"</script>
-</body>
-</html>
+const toggleButton = document.getElementById("theme-toggle");
+
+toggleButton.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
+
+window.addEventListener("load", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode"); 
+  }
+});
